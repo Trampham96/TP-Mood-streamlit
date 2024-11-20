@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# Create title for the app
+# Create a title for the app
 st.title("🌞 How is Your Day! 🌟")
 
 # Create mood options
@@ -38,3 +38,20 @@ quotes = {
 if st.button("Show me a quote"):
     selected_quote = random.choice(quotes[mood])
     st.write(f"**Quote for you:** {selected_quote}")
+    
+    # Create a smiley face animation
+    st.markdown(
+        """
+        <style>
+        .emoji {
+            font-size: 50px;
+            animation: moveUp 4s linear infinite;
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes moveUp {
+            0% {
+                bottom: -100px;
