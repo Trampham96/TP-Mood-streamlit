@@ -1,16 +1,16 @@
 import streamlit as st
 import random
 
-# Create a title for the app
+# Tạo tiêu đề cho ứng dụng
 st.title("🌞 How is Your Day! 🌟")
 
-# Create mood options
+# Tạo các tùy chọn cảm xúc
 mood = st.radio(
     "Choose your mood:",
     ("Happy", "Sad", "Terrible", "Neutral")
 )
 
-# List of quotes for each mood
+# Danh sách các câu quote cho mỗi cảm xúc
 quotes = {
     "Happy": [
         "Enjoy your happiness, because joy is a treasure of life!",
@@ -34,12 +34,12 @@ quotes = {
     ]
 }
 
-# Display a quote based on the selected mood
+# Hiển thị câu quote phù hợp khi người dùng chọn cảm xúc
 if st.button("Show me a quote"):
     selected_quote = random.choice(quotes[mood])
     st.write(f"**Quote for you:** {selected_quote}")
     
-    # Create a smiley face animation
+    # Tạo hiệu ứng mặt cười chạy lên
     st.markdown(
         """
         <style>
@@ -55,3 +55,21 @@ if st.button("Show me a quote"):
         @keyframes moveUp {
             0% {
                 bottom: -100px;
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+        </style>
+        <div class="emoji">😊</div>
+        """,
+        unsafe_allow_html=True
+    )
